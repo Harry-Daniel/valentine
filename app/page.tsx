@@ -25,7 +25,19 @@ const page = () => {
     }
 
     setErrors([]);
-    router.push(`/${beloved}`);
+    const destination = `${window.location.origin}/${result.data}`;
+    const copyToClipboard = async () => {
+      try {
+        await navigator.clipboard.writeText(destination);
+        alert(
+          "The link has been copied to your clipboard. Share it with your beloved",
+        );
+      } catch (err) {
+        console.error("Failed to copy", err);
+      }
+    };
+    copyToClipboard();
+    router.push(`/${result.data}`);
   };
   return (
     <section className="bg-red-300 h-screen w-screen flex justify-center items-center">
