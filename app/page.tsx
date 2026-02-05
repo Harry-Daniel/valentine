@@ -4,35 +4,14 @@ import { heartRain } from "@/component/confettiRain";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
+import askingImage from "@/public/assets/images/asking.jpg";
+import celebrateGif from "@/public/assets/gifs/celebrate.gif";
+
 export default function Home() {
   const [proposalStage, setProposalStage] = useState(1);
-  const [size, setSize] = useState({
-    width: 0,
-    height: 0,
-  });
+
   const [visible, setVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    function updateSize() {
-      setSize({
-        width:
-          window.innerWidth < 1000
-            ? (20 / 100) * window.innerWidth
-            : (15 / 100) * window.innerWidth,
-        height:
-          window.innerHeight < 1000
-            ? (20 / 100) * window.innerHeight
-            : (15 / 100) * window.innerHeight,
-      });
-    }
-
-    console.log(size);
-    updateSize(); // initial
-    window.addEventListener("resize", updateSize);
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
 
   const handleOnClickYes = () => {
     audioRef.current?.play();
@@ -86,10 +65,10 @@ export default function Home() {
               )}
             </div>
             <Image
-              src={"/assets/images/asking.jpg"}
+              src={askingImage}
               alt="Cutie asking you to be his valentine"
-              width={size.width}
-              height={size.height}
+              className="w-32 h-32 lg:w-75 lg:h-75"
+              priority
             />
           </div>
         )}
@@ -101,10 +80,9 @@ export default function Home() {
               <p className="texl-lg lg:text-2xl text-center">Yayyyy!!!🎉</p>
             </div>
             <Image
-              src={"/assets/gifs/celebrate.gif"}
-              alt="Cutie asking you to be his valentine"
-              width={size.width}
-              height={size.height}
+              src={celebrateGif}
+              alt="Happy a beautiful girl accepted"
+              className="w-32 h-32 lg:w-75 lg:h-75"
               priority
             />
           </div>
