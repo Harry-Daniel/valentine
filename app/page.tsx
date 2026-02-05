@@ -25,7 +25,7 @@ const page = () => {
     }
 
     setErrors([]);
-    const destination = `${window.location.origin}/${result.data}`;
+    const destination = `${window.location.origin}/${encodeURIComponent(result.data)}`;
     const copyToClipboard = async () => {
       try {
         await navigator.clipboard.writeText(destination);
