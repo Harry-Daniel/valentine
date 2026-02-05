@@ -16,7 +16,7 @@ export default function Home() {
       : Array.isArray(name)
         ? decodeURIComponent(name[0])
         : "";
-  console.log(belovedName);
+
   const [proposalStage, setProposalStage] = useState(1);
 
   const [visible, setVisible] = useState(true);
