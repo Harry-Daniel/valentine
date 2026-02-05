@@ -1,4 +1,6 @@
 "use client";
+
+import { heartRain } from "@/component/confettiRain";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
@@ -34,6 +36,7 @@ export default function Home() {
 
   const handleOnClickYes = () => {
     audioRef.current?.play();
+    heartRain(5000);
     setProposalStage(2);
   };
 
