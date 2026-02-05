@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   const [proposalStage, setProposalStage] = useState(1);
@@ -9,6 +9,7 @@ export default function Home() {
     height: 0,
   });
   const [visible, setVisible] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     function updateSize() {
@@ -32,12 +33,13 @@ export default function Home() {
   }, []);
 
   const handleOnClickYes = () => {
-    console.log("yes");
+    audioRef.current?.play();
     setProposalStage(2);
   };
 
   return (
     <section className="bg-red-300 h-screen w-screen flex justify-center items-center">
+      <audio ref={audioRef} src="/assets/songs/music.mp3" preload="auto" />
       <div className="bg-white w-[60%] h-[60%] rounded-2xl shadow-2xl flex justify-center items-center ">
         {/* Asking Stage */}
         {proposalStage === 1 && (
