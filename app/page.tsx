@@ -48,7 +48,7 @@ export default function Home() {
                 </span>{" "}
                 will you be my Valentiwwwne???
               </p>
-              <div className="flex flex-row  ">
+              <div className="flex flex-row gap-2 lg:gap-24 ">
                 <button
                   onClick={handleOnClickYes}
                   className="bg-red-300 text-white font-bold px-4 py-1 w-16 h-8 rounded-xl active:scale-95 hover:scale-105"
