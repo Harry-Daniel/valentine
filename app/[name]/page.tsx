@@ -6,8 +6,17 @@ import { useEffect, useState, useRef } from "react";
 
 import askingImage from "@/public/assets/images/asking.jpg";
 import celebrateGif from "@/public/assets/gifs/celebrate.gif";
+import { useParams } from "next/navigation";
 
 export default function Home() {
+  const { name } = useParams();
+  const belovedName =
+    typeof name === "string"
+      ? decodeURIComponent(name)
+      : Array.isArray(name)
+        ? decodeURIComponent(name[0])
+        : "";
+  console.log(belovedName);
   const [proposalStage, setProposalStage] = useState(1);
 
   const [visible, setVisible] = useState(true);
@@ -28,9 +37,7 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center gap-12 p-8">
             <div className=" flex flex-col gap-4 justify-center items-center">
               <p className="texl-lg lg:text-2xl text-center">
-                <span className="text-red-300 font-bold">
-                  Karen Mmabilla Adazabra
-                </span>{" "}
+                <span className="text-red-300 font-bold">{belovedName}</span>{" "}
                 will you be my Valentiwwwne???
               </p>
               <div className="flex flex-row gap-2 lg:gap-24 ">
