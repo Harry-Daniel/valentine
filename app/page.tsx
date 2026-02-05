@@ -1,12 +1,30 @@
 "use client";
-
+import * as z from "zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const page = () => {
+  const belovedSchema = z
+    .string()
+    .min(1, "Don't be shy, tell us who your beloved is.")
+    .max(
+      255,
+      "Wow, that is a beautiful name your beloved has, kindly shorten it for us",
+    );
   const [beloved, setBeloved] = useState<string>("");
+  const [errors, setErrors] = useState<string[]>([]);
+
   const router = useRouter();
+
   const handleGenerate = () => {
+    const result = belovedSchema.safeParse(beloved);
+    if (!result.success) {
+      const errorMessages = result.error.issues.map((issue) => issue.message);
+      setErrors(errorMessages);
+      return;
+    }
+
+    setErrors([]);
     router.push(`/${beloved}`);
   };
   return (
@@ -31,6 +49,12 @@ const page = () => {
         >
           GENERATE
         </button>
+        {errors.length > 0 &&
+          errors.map((error, index) => (
+            <p className="text-red-600" key={index}>
+              {error}
+            </p>
+          ))}
       </div>
     </section>
   );
