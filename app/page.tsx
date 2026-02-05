@@ -105,6 +105,7 @@ export default function Home() {
               alt="Cutie asking you to be his valentine"
               width={size.width}
               height={size.height}
+              priority
             />
           </div>
         )}
