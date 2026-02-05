@@ -39,6 +39,7 @@ export default function Home() {
   return (
     <section className="bg-red-300 h-screen w-screen flex justify-center items-center">
       <div className="bg-white w-[60%] h-[60%] rounded-2xl shadow-2xl flex justify-center items-center ">
+        {/* Asking Stage */}
         {proposalStage === 1 && (
           <div className="flex flex-col justify-center items-center gap-12 p-8">
             <div className=" flex flex-col gap-4 justify-center items-center">
@@ -81,6 +82,21 @@ export default function Home() {
             </div>
             <Image
               src={"/assets/images/asking.jpg"}
+              alt="Cutie asking you to be his valentine"
+              width={size.width}
+              height={size.height}
+            />
+          </div>
+        )}
+
+        {/* Celebration Stage */}
+        {proposalStage === 2 && (
+          <div className="flex flex-col justify-center items-center gap-12 p-8">
+            <div className=" flex flex-col gap-4 justify-center items-center">
+              <p className="texl-lg lg:text-2xl text-center">Yayyyy!!!🎉</p>
+            </div>
+            <Image
+              src={"/assets/gifs/celebrate.gif"}
               alt="Cutie asking you to be his valentine"
               width={size.width}
               height={size.height}
