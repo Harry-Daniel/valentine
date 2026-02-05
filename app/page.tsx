@@ -41,8 +41,8 @@ const page = () => {
   };
   return (
     <section className="bg-red-300 h-screen w-screen flex justify-center items-center">
-      <div className="bg-white w-[60%] h-[60%] rounded-2xl shadow-2xl flex justify-center items-center flex-col gap-12">
-        <div className="texl-lg lg:text-2xl text-center flex flex-col gap-6">
+      <div className="bg-white w-[60%] h-[60%] rounded-2xl shadow-2xl flex justify-center items-center flex-col gap-12 p-4">
+        <div className="texl-lg lg:text-2xl text-center flex flex-col gap-6 ">
           <p>
             <span className="text-red-300 font-bold">What </span> is the name of
             our beloved?
